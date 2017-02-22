@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<info>
+		<version>
+			<pluginVersion>1.1</pluginVersion>
+			<requiresAtLeast>5.15.2.9</requiresAtLeast>
+		</version>
+		<description>Search on one or more metadata fields</description>
+	</info>
+	<action>
+		<url>${pluginUrl}/index.html</url>
+		<icon16Url>${pluginUrl}/icon16.png</icon16Url>
+		<icon24Url>${pluginUrl}/icon24.png</icon24Url>
+
+		<userInterface>
+			<!-- Note: dialog height is automatically scaled based on the amount of fields -->
+			<dialog width="400" height="100"/>
+		</userInterface>
+
+		<menuAssignments>
+			<menuAssignment id="toolBar" order="1"/>
+		</menuAssignments>
+
+		<messages>
+			<entries locale="en_US">
+				<entry key="title">Multi-field search</entry>
+				<entry key="button.label">Multi-field search</entry>
+				<entry key="button.tooltip">Search on multiple metadata fields</entry>
+			</entries>
+		</messages>
+	</action>
+	<config>
+		<property name="searchFields">
+			<description>Comma separated list of fields to search on, text and number fields are supported.</description>
+			<value>tags,description,copyright,credit,subject</value>
+		</property>
+	</config>
+</plugin>
