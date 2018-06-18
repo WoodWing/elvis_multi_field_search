@@ -157,7 +157,12 @@ THE SOFTWARE.
 	}
 	
 	function init() {
-		elvisContext = ElvisPlugin.resolveElvisContext();
+		elvisContext = ElvisPlugin.resolveElvisContext(false);
+		if (!elvisContext) {
+			// Hack-Fix for MS Edge, which weirdly tries to open the dialog plugin again after a elvisContext.close() is performed
+			console.warn('No elvisContext available, unable to create search dialog');
+			return;
+		}
 		createInputs(function() {
 			$(".search-button").click(search);
 			loadCurrentSearch();
